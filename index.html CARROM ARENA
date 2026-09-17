@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARROM ARENA - Sub 2 Unlock</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #2c1654 0%, #0d0718 100%);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+            background: rgba(25, 18, 41, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 26px;
+            color: #ffcc00;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            color: #aaaaaa;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .step-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .step-title {
+            font-size: 15px;
+            color: #ddd;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 14px 18px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        .btn-youtube {
+            background: #ff0000;
+        }
+
+        .btn-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .btn-telegram {
+            background: #0088cc;
+        }
+
+        .btn-unlock {
+            background: #28a745;
+            justify-content: center;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            margin-bottom: 0;
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+            box-shadow: 0 0 15px rgba(40, 167, 69, 0.4);
+        }
+
+        .btn-unlock.active {
+            opacity: 1;
+            cursor: pointer;
+            pointer-events: auto;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .status-icon {
+            font-size: 16px;
+        }
+
+        footer {
+            margin-top: 20px;
+            color: #666666;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo">🎯</div>
+        <h1>Carrom Arena</h1>
+        <p class="subtitle">Complete all steps to unlock App Link</p>
+
+        <div class="step-box">
+            <div class="step-title">Follow / Subscribe to Continue</div>
+
+            <!-- 1. YouTube Button -->
+            <a href="https://youtube.com/@carrom_arena?si=SjZbux6K6i55pYyt" target="_blank" class="btn btn-youtube" id="ytBtn" onclick="markDone('yt')">
+                <span>▶️ Subscribe YouTube</span>
+                <span class="status-icon" id="ytStatus">❌</span>
+            </a>
+
+            <!-- 2. Instagram Button -->
+            <a href="https://www.instagram.com/carrom_arena0?stkn=MW9xYXhseXdkYXBkZw==" target="_blank" class="btn btn-instagram" id="instaBtn" onclick="markDone('insta')">
+                <span>📸 Follow Instagram</span>
+                <span class="status-icon" id="instaStatus">❌</span>
+            </a>
+
+            <!-- 3. Telegram Button -->
+            <a href="https://t.me/autoplaycarrompool" target="_blank" class="btn btn-telegram" id="tgBtn" onclick="markDone('tg')">
+                <span>✈️ Join Telegram</span>
+                <span class="status-icon" id="tgStatus">❌</span>
+            </a>
+        </div>
+
+        <!-- MediaFire Direct Download Link -->
+        <a href="https://www.mediafire.com/file/wjcwty899xk5mn9/Carrom.Disc.Pool_19.4.0-New_%25281%2529.apk/file" target="_blank" class="btn btn-unlock" id="downloadBtn">
+            🔒 GET APP LINK
+        </a>
+
+        <footer>
+            © 2026 Carrom Arena • All Rights Reserved
+        </footer>
+    </div>
+
+    <script>
+        // @ts-nocheck
+        const status = {
+            yt: false,
+            insta: false,
+            tg: false
+        };
+
+        function markDone(type) {
+            if (type === 'yt') status.yt = true;
+            if (type === 'insta') status.insta = true;
+            if (type === 'tg') status.tg = true;
+            
+            // Icon Change to Checkmark
+            const el = document.getElementById(type + 'Status');
+            if (el) el.innerText = '✅';
+
+            // Check if all steps are completed
+            if (status.yt && status.insta && status.tg) {
+                const downloadBtn = document.getElementById('downloadBtn');
+                if (downloadBtn) {
+                    downloadBtn.classList.add('active');
+                    downloadBtn.innerHTML = '🚀 GET APP LINK (UNLOCKED)';
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
